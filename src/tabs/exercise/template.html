@@ -6,12 +6,18 @@
       <input id="workoutDateInput" type="date" />
     </div>
     <div class="field-group">
-      <label for="workoutNameInput">Workout</label>
-      <input id="workoutNameInput" type="text" maxlength="60" placeholder="Running, HIIT..." />
+      <label for="workoutLocationInput">Location</label>
+      <select id="workoutLocationInput">
+        <option value="gym" selected>Gym</option>
+        <option value="home">Home workout</option>
+      </select>
     </div>
     <div class="field-group">
-      <label for="workoutDurationInput">Duration (min)</label>
-      <input id="workoutDurationInput" type="number" min="1" step="1" placeholder="45" />
+      <label for="workoutModeInput">Mode</label>
+      <select id="workoutModeInput">
+        <option value="log" selected>Log workout</option>
+        <option value="start">Start workout</option>
+      </select>
     </div>
     <div class="field-group">
       <label for="workoutIntensityInput">Intensity</label>
@@ -25,13 +31,32 @@
       <label for="workoutWeightInput">Body Weight (kg)</label>
       <input id="workoutWeightInput" type="number" min="20" step="0.1" placeholder="70" />
     </div>
+    <div class="field-group">
+      <label for="workoutDurationInput">Duration (min)</label>
+      <input id="workoutDurationInput" type="number" min="1" step="1" placeholder="45" />
+    </div>
     <article class="stat-card inline-stat">
       <h3>Estimated Burn</h3>
       <p id="workoutCaloriesPreview">0 kcal</p>
     </article>
   </div>
+
+  <div class="workout-builder">
+    <div class="workout-builder-head">
+      <h3>Exercise Order</h3>
+      <button id="workoutAddItemBtn" class="btn btn-ghost" type="button">Add Exercise</button>
+    </div>
+    <div id="workoutItemsContainer" class="workout-items"></div>
+  </div>
+
+  <div id="workoutSessionActions" class="actions session-actions hidden">
+    <button id="workoutStartBtn" class="btn btn-secondary" type="button">Start Workout</button>
+    <button id="workoutFinishBtn" class="btn btn-ghost" type="button" disabled>Finish Workout</button>
+    <p id="workoutSessionStatus" class="db-status" data-tone="neutral" role="status" aria-live="polite">Session timer is ready.</p>
+  </div>
+
   <div class="actions">
-    <button id="workoutSaveBtn" class="btn btn-primary" type="button">Add Workout</button>
+    <button id="workoutSaveBtn" class="btn btn-primary" type="button">Save Workout Log</button>
   </div>
 </section>
 <section class="panel">
@@ -50,9 +75,10 @@
       <thead>
         <tr>
           <th>Date</th>
-          <th>Workout</th>
+          <th>Location</th>
+          <th>Mode</th>
+          <th>Routine</th>
           <th>Duration</th>
-          <th>Intensity</th>
           <th>Calories</th>
           <th>Action</th>
         </tr>

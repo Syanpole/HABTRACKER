@@ -38,6 +38,79 @@
   align-self: end;
 }
 
+[data-tab-panel="exercise"] .workout-builder {
+  border: 1px solid #a8bcc2;
+  border-radius: 12px;
+  background: #f8fdfe;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+[data-tab-panel="exercise"] .workout-builder-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+[data-tab-panel="exercise"] .workout-builder-head h3 {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+[data-tab-panel="exercise"] .workout-items {
+  display: grid;
+  gap: 10px;
+}
+
+[data-tab-panel="exercise"] .workout-item-row {
+  border: 1px solid #b2c5cb;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 10px;
+  display: grid;
+  gap: 8px;
+}
+
+[data-tab-panel="exercise"] .workout-item-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+[data-tab-panel="exercise"] .order-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #8db0b9;
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #1c4f59;
+  background: #e8f5f8;
+}
+
+[data-tab-panel="exercise"] .workout-item-grid {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+[data-tab-panel="exercise"] .session-actions {
+  border-top: 1px dashed #a8bcc2;
+  padding-top: 10px;
+}
+
+[data-tab-panel="exercise"] .workout-summary {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #365d66;
+}
+
 [data-tab-panel="exercise"] .table-scroller {
   overflow: auto;
   border: 1px solid #93abb2;
@@ -74,6 +147,15 @@
 }
 
 @media (max-width: 780px) {
+  [data-tab-panel="exercise"] .workout-item-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  [data-tab-panel="exercise"] .workout-builder-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   [data-tab-panel="exercise"] .simple-table {
     min-width: 560px;
   }

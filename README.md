@@ -68,6 +68,16 @@ Then run:
 
 If database is not configured, the app still works with local browser storage.
 
+### Exercise tab workflow
+
+The Exercise tab now supports:
+
+- Workout location selection (`Gym` or `Home workout`)
+- Workout mode (`Log workout` or `Start workout` with timer)
+- Ordered exercise builder (`1st`, `2nd`, `3rd`, etc.)
+- Per-exercise sets, reps, and minutes
+- Total duration + estimated calorie burn
+
 ## Deploy on Vercel
 
 ### Option 1: Vercel dashboard

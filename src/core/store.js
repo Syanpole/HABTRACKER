@@ -74,15 +74,52 @@ export function normalizeState(parsed) {
   const safeWorkouts = Array.isArray(parsed?.workouts)
     ? parsed.workouts
         .filter((item) => item && typeof item === "object")
-        .map((item) => ({
-          id: String(item.id || ""),
-          date: String(item.date || ""),
-          workout: String(item.workout || "Workout"),
-          duration: Number(item.duration) || 0,
-          intensity: ["light", "moderate", "high"].includes(item.intensity) ? item.intensity : "moderate",
-          calories: Number(item.calories) || 0,
-          createdAt: String(item.createdAt || ""),
-        }))
+        .map((item) => {
+          const legacyName = String(item.workout || "").trim();
+
+          const normalizedRoutine = Array.isArray(item.routine)
+            ? item.routine
+                .filter((entry) => entry && typeof entry === "object")
+                .map((entry, index) => ({
+                  order: index + 1,
+                  name: String(entry.name || "").trim(),
+                  sets: Number(entry.sets) || 0,
+                  reps: Number(entry.reps) || 0,
+                  minutes: Number(entry.minutes) || 0,
+                }))
+                .filter((entry) => entry.name)
+            : [];
+
+          const safeRoutine = normalizedRoutine.length
+            ? normalizedRoutine
+            : legacyName
+              ? [
+                  {
+                    order: 1,
+                    name: legacyName,
+                    sets: Number(item.sets) || 0,
+                    reps: Number(item.reps) || 0,
+                    minutes: Number(item.duration) || 0,
+                  },
+                ]
+              : [];
+
+          return {
+            id: String(item.id || ""),
+            date: String(item.date || ""),
+            workout: legacyName || "Workout",
+            location: item.location === "home" ? "home" : "gym",
+            mode: item.mode === "start" ? "start" : "log",
+            routine: safeRoutine,
+            duration: Number(item.duration) || 0,
+            intensity: ["light", "moderate", "high"].includes(item.intensity) ? item.intensity : "moderate",
+            weightKg: Number(item.weightKg) || Number(item.weight) || 0,
+            calories: Number(item.calories) || 0,
+            startedAt: String(item.startedAt || ""),
+            endedAt: String(item.endedAt || ""),
+            createdAt: String(item.createdAt || ""),
+          };
+        })
     : [];
 
   const safeFoods = Array.isArray(parsed?.foods)
