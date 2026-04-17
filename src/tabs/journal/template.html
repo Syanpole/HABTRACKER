@@ -1,0 +1,39 @@
+<section class="panel">
+  <div class="journal-heading">
+    <h2>Journal</h2>
+    <p class="meta-row">Capture wins, lessons, and plans in a clean writing flow.</p>
+  </div>
+  <div class="journal-prompts" aria-label="Writing prompts">
+    <button class="prompt-chip" type="button" data-journal-prompt="gratitude">Gratitude</button>
+    <button class="prompt-chip" type="button" data-journal-prompt="reflection">Reflection</button>
+    <button class="prompt-chip" type="button" data-journal-prompt="plan">Plan</button>
+  </div>
+  <div class="grid-two">
+    <div class="field-group">
+      <label for="journalDateInput">Date</label>
+      <input id="journalDateInput" type="date" />
+    </div>
+    <div class="field-group">
+      <label for="journalTitleInput">Title</label>
+      <input id="journalTitleInput" type="text" maxlength="80" placeholder="How did today go?" />
+    </div>
+  </div>
+  <div class="field-group">
+    <label for="journalContentInput">Entry</label>
+    <textarea id="journalContentInput" rows="5" placeholder="Write your thoughts, wins, and lessons..."></textarea>
+  </div>
+  <div class="journal-editor-foot">
+    <p id="journalWordCount" class="meta-row">0 words</p>
+    <p id="journalCharCount" class="meta-row">0 characters</p>
+  </div>
+  <div class="actions">
+    <button id="journalSaveBtn" class="btn btn-primary" type="button">Save Journal Entry</button>
+  </div>
+</section>
+<section class="panel">
+  <div class="journal-list-head">
+    <h2>Saved Entries</h2>
+    <input id="journalSearchInput" type="text" placeholder="Search entries..." maxlength="60" />
+  </div>
+  <div id="journalList" class="stack-list"></div>
+</section>

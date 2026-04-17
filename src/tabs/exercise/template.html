@@ -1,0 +1,63 @@
+<section class="panel">
+  <h2>Exercise / Workout</h2>
+  <div class="grid-two">
+    <div class="field-group">
+      <label for="workoutDateInput">Date</label>
+      <input id="workoutDateInput" type="date" />
+    </div>
+    <div class="field-group">
+      <label for="workoutNameInput">Workout</label>
+      <input id="workoutNameInput" type="text" maxlength="60" placeholder="Running, HIIT..." />
+    </div>
+    <div class="field-group">
+      <label for="workoutDurationInput">Duration (min)</label>
+      <input id="workoutDurationInput" type="number" min="1" step="1" placeholder="45" />
+    </div>
+    <div class="field-group">
+      <label for="workoutIntensityInput">Intensity</label>
+      <select id="workoutIntensityInput">
+        <option value="light">Light</option>
+        <option value="moderate" selected>Moderate</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+    <div class="field-group">
+      <label for="workoutWeightInput">Body Weight (kg)</label>
+      <input id="workoutWeightInput" type="number" min="20" step="0.1" placeholder="70" />
+    </div>
+    <article class="stat-card inline-stat">
+      <h3>Estimated Burn</h3>
+      <p id="workoutCaloriesPreview">0 kcal</p>
+    </article>
+  </div>
+  <div class="actions">
+    <button id="workoutSaveBtn" class="btn btn-primary" type="button">Add Workout</button>
+  </div>
+</section>
+<section class="panel">
+  <div class="stats-grid">
+    <article class="stat-card">
+      <h3>Total Minutes</h3>
+      <p id="workoutMinutesStat">0</p>
+    </article>
+    <article class="stat-card">
+      <h3>Total Calories Burned</h3>
+      <p id="workoutCaloriesStat">0</p>
+    </article>
+  </div>
+  <div class="table-scroller compact-scroll">
+    <table class="simple-table" id="workoutTable">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Workout</th>
+          <th>Duration</th>
+          <th>Intensity</th>
+          <th>Calories</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="workoutTableBody"></tbody>
+    </table>
+  </div>
+</section>

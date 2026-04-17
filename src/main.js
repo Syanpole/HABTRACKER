@@ -18,6 +18,30 @@ import { setupFood } from "./modules/food.js";
 import { setupHabitTracker } from "./modules/habitTracker.js";
 import { setupJournal } from "./modules/journal.js";
 import { setupTabs } from "./modules/tabs.js";
+import financesTabTemplate from "./tabs/finances/template.html?raw";
+import foodTabTemplate from "./tabs/food/template.html?raw";
+import habitTabTemplate from "./tabs/habit/template.html?raw";
+import journalTabTemplate from "./tabs/journal/template.html?raw";
+import exerciseTabTemplate from "./tabs/exercise/template.html?raw";
+
+mountTabTemplates();
+
+function mountTabTemplates() {
+  const panelTemplates = {
+    habit: habitTabTemplate,
+    journal: journalTabTemplate,
+    finances: financesTabTemplate,
+    exercise: exerciseTabTemplate,
+    food: foodTabTemplate,
+  };
+
+  Object.entries(panelTemplates).forEach(([tabName, template]) => {
+    const panel = document.querySelector(`[data-tab-panel="${tabName}"]`);
+    if (panel) {
+      panel.innerHTML = template;
+    }
+  });
+}
 
 const dom = {
   loginGate: document.getElementById("loginGate"),
@@ -47,6 +71,10 @@ const dom = {
   journalContentInput: document.getElementById("journalContentInput"),
   journalSaveBtn: document.getElementById("journalSaveBtn"),
   journalList: document.getElementById("journalList"),
+  journalSearchInput: document.getElementById("journalSearchInput"),
+  journalWordCount: document.getElementById("journalWordCount"),
+  journalCharCount: document.getElementById("journalCharCount"),
+  journalPromptButtons: Array.from(document.querySelectorAll("[data-journal-prompt]")),
 
   financeDateInput: document.getElementById("financeDateInput"),
   financeTypeInput: document.getElementById("financeTypeInput"),
@@ -149,6 +177,10 @@ const journalApi = setupJournal({
   journalContentInput: dom.journalContentInput,
   journalSaveBtn: dom.journalSaveBtn,
   journalList: dom.journalList,
+  journalSearchInput: dom.journalSearchInput,
+  journalWordCount: dom.journalWordCount,
+  journalCharCount: dom.journalCharCount,
+  journalPromptButtons: dom.journalPromptButtons,
 });
 
 const financeApi = setupFinances({

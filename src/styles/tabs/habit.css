@@ -1,0 +1,117 @@
+[data-tab-panel="habit"] .controls-panel {
+  display: grid;
+  gap: 16px;
+}
+
+[data-tab-panel="habit"] .goals-wrap {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+[data-tab-panel="habit"] .goal-item {
+  display: grid;
+  gap: 6px;
+}
+
+[data-tab-panel="habit"] .goal-item span {
+  font-size: 0.77rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #355962;
+}
+
+[data-tab-panel="habit"] .habit-label-grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  align-items: start;
+}
+
+[data-tab-panel="habit"] .habit-field {
+  display: grid;
+  gap: 6px;
+}
+
+[data-tab-panel="habit"] .habit-field input {
+  width: 100%;
+}
+
+[data-tab-panel="habit"] .habit-field label {
+  font-size: 0.75rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #2f4d54;
+}
+
+[data-tab-panel="habit"] .table-scroller {
+  overflow: auto;
+  border: 1px solid #93abb2;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+[data-tab-panel="habit"] #entryTable {
+  border-collapse: collapse;
+  min-width: 1200px;
+  width: 100%;
+}
+
+[data-tab-panel="habit"] #entryTable th,
+[data-tab-panel="habit"] #entryTable td {
+  border: 1px solid #b8c5c9;
+  padding: 6px;
+  text-align: center;
+  font-size: 0.83rem;
+}
+
+[data-tab-panel="habit"] #entryTable thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #e2eef1;
+  color: #0e323d;
+}
+
+[data-tab-panel="habit"] #entryTable tbody td:first-child,
+[data-tab-panel="habit"] #entryTable thead th:first-child {
+  position: sticky;
+  left: 0;
+  background: #d6e6ea;
+  font-weight: 700;
+}
+
+[data-tab-panel="habit"] #entryTable tbody td:first-child {
+  z-index: 1;
+}
+
+[data-tab-panel="habit"] #entryTable thead th:first-child {
+  z-index: 3;
+}
+
+[data-tab-panel="habit"] #entryTable input[type="number"] {
+  width: 88px;
+}
+
+[data-tab-panel="habit"] #entryTable input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+[data-tab-panel="habit"] .rating-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 54px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #d6eef3;
+  color: #124550;
+  font-weight: 700;
+}
+
+@media (max-width: 780px) {
+  [data-tab-panel="habit"] #entryTable {
+    min-width: 980px;
+  }
+}

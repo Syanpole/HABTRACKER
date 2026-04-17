@@ -10,29 +10,70 @@ export function setupJournal({
   journalContentInput,
   journalSaveBtn,
   journalList,
+  journalSearchInput,
+  journalWordCount,
+  journalCharCount,
+  journalPromptButtons,
 }) {
+  const PROMPT_TEMPLATES = {
+    gratitude: "Today I am grateful for:\n1. \n2. \n3. ",
+    reflection: "What went well today?\n\nWhat can I improve tomorrow?\n",
+    plan: "Top 3 priorities for tomorrow:\n1. \n2. \n3. ",
+  };
+
+  function updateEditorStats() {
+    const text = String(journalContentInput.value || "").trim();
+    const words = text ? text.split(/\s+/).length : 0;
+    const chars = String(journalContentInput.value || "").length;
+
+    journalWordCount.textContent = `${words} word${words === 1 ? "" : "s"}`;
+    journalCharCount.textContent = `${chars} character${chars === 1 ? "" : "s"}`;
+  }
+
+  function applyPrompt(type) {
+    const template = PROMPT_TEMPLATES[type];
+    if (!template) return;
+
+    const current = String(journalContentInput.value || "").trim();
+    journalContentInput.value = current ? `${current}\n\n${template}` : template;
+    journalContentInput.focus();
+    updateEditorStats();
+  }
+
   function renderJournal() {
     const state = getState();
+    const query = String(journalSearchInput.value || "").trim().toLowerCase();
     journalList.innerHTML = "";
 
-    if (!state.journalEntries.length) {
+    const filteredEntries = state.journalEntries.filter((entry) => {
+      if (!query) return true;
+      const haystack = `${entry.date || ""} ${entry.title || ""} ${entry.content || ""}`.toLowerCase();
+      return haystack.includes(query);
+    });
+
+    if (!filteredEntries.length) {
       const empty = document.createElement("p");
       empty.className = "meta-row";
-      empty.textContent = "No journal entries yet.";
+      empty.textContent = query ? "No entries matched your search." : "No journal entries yet.";
       journalList.appendChild(empty);
       return;
     }
 
-    state.journalEntries.forEach((entry) => {
+    filteredEntries.forEach((entry) => {
       const card = document.createElement("article");
       card.className = "list-card";
+
+      const badge = document.createElement("p");
+      badge.className = "entry-meta-badge";
+      badge.textContent = entry.date || "No date";
 
       const title = document.createElement("h3");
       title.textContent = entry.title || "Untitled";
 
       const meta = document.createElement("p");
       meta.className = "meta-row";
-      meta.textContent = `${entry.date || "No date"}`;
+      const words = String(entry.content || "").trim() ? String(entry.content || "").trim().split(/\s+/).length : 0;
+      meta.textContent = `${words} word${words === 1 ? "" : "s"}`;
 
       const content = document.createElement("p");
       content.textContent = entry.content || "";
@@ -52,7 +93,7 @@ export function setupJournal({
       });
 
       actions.appendChild(deleteBtn);
-      card.append(title, meta, content, actions);
+      card.append(badge, title, meta, content, actions);
       journalList.appendChild(card);
     });
   }
@@ -81,8 +122,18 @@ export function setupJournal({
     setState(state);
     persist();
     renderJournal();
+    updateEditorStats();
     setStatus("Journal entry saved.", "ok");
   });
+
+  journalContentInput.addEventListener("input", updateEditorStats);
+  journalSearchInput.addEventListener("input", renderJournal);
+
+  journalPromptButtons.forEach((button) => {
+    button.addEventListener("click", () => applyPrompt(button.dataset.journalPrompt));
+  });
+
+  updateEditorStats();
 
   return {
     renderJournal,
