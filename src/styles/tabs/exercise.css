@@ -1,0 +1,80 @@
+[data-tab-panel="exercise"] .grid-two {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+[data-tab-panel="exercise"] .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+[data-tab-panel="exercise"] .stat-card {
+  border: 1px solid #a8bcc2;
+  border-radius: 12px;
+  background: #f8fdfe;
+  padding: 10px;
+}
+
+[data-tab-panel="exercise"] .stat-card h3 {
+  margin: 0 0 6px;
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #2e5761;
+}
+
+[data-tab-panel="exercise"] .stat-card p {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+[data-tab-panel="exercise"] .inline-stat {
+  margin: 0;
+  align-self: end;
+}
+
+[data-tab-panel="exercise"] .table-scroller {
+  overflow: auto;
+  border: 1px solid #93abb2;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+[data-tab-panel="exercise"] .compact-scroll {
+  max-height: 400px;
+}
+
+[data-tab-panel="exercise"] .simple-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 640px;
+}
+
+[data-tab-panel="exercise"] .simple-table th,
+[data-tab-panel="exercise"] .simple-table td {
+  border: 1px solid #b8c5c9;
+  padding: 8px;
+  text-align: left;
+  font-size: 0.84rem;
+}
+
+[data-tab-panel="exercise"] .simple-table th {
+  background: #e2eef1;
+  color: #0f333e;
+}
+
+[data-tab-panel="exercise"] .simple-table td:last-child,
+[data-tab-panel="exercise"] .simple-table th:last-child {
+  text-align: center;
+}
+
+@media (max-width: 780px) {
+  [data-tab-panel="exercise"] .simple-table {
+    min-width: 560px;
+  }
+}

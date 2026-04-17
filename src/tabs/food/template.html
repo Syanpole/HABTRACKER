@@ -1,0 +1,59 @@
+<section class="panel">
+  <h2>Food Intake + Calorie Calculator</h2>
+  <div class="grid-two">
+    <div class="field-group">
+      <label for="foodDateInput">Date</label>
+      <input id="foodDateInput" type="date" />
+    </div>
+    <div class="field-group">
+      <label for="foodDailyTargetInput">Daily Target (kcal)</label>
+      <input id="foodDailyTargetInput" type="number" min="0" step="1" placeholder="2200" />
+    </div>
+    <div class="field-group">
+      <label for="foodItemInput">Food Item</label>
+      <input id="foodItemInput" type="text" maxlength="60" placeholder="Oatmeal" />
+    </div>
+    <div class="field-group">
+      <label for="foodGramsInput">Weight (g)</label>
+      <input id="foodGramsInput" type="number" min="1" step="1" placeholder="100" />
+    </div>
+    <div class="field-group">
+      <label for="foodCaloriesPer100Input">Calories per 100g</label>
+      <input id="foodCaloriesPer100Input" type="number" min="0" step="0.1" placeholder="389" />
+    </div>
+    <article class="stat-card inline-stat">
+      <h3>Calculated Calories</h3>
+      <p id="foodCaloriesPreview">0 kcal</p>
+    </article>
+  </div>
+  <div class="actions">
+    <button id="foodAddBtn" class="btn btn-primary" type="button">Add Food Entry</button>
+  </div>
+</section>
+<section class="panel">
+  <div class="stats-grid">
+    <article class="stat-card">
+      <h3>Selected Day Intake</h3>
+      <p id="foodIntakeStat">0 kcal</p>
+    </article>
+    <article class="stat-card">
+      <h3>Remaining</h3>
+      <p id="foodRemainingStat">0 kcal</p>
+    </article>
+  </div>
+  <div class="table-scroller compact-scroll">
+    <table class="simple-table" id="foodTable">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Food</th>
+          <th>Grams</th>
+          <th>Cal / 100g</th>
+          <th>Total kcal</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="foodTableBody"></tbody>
+    </table>
+  </div>
+</section>

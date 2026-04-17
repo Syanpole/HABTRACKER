@@ -1,0 +1,33 @@
+<section class="panel controls-panel">
+  <div class="field-group">
+    <label for="profileInput">Profile</label>
+    <input id="profileInput" type="text" maxlength="40" placeholder="default" readonly />
+  </div>
+  <div class="field-group">
+    <label for="monthInput">Month</label>
+    <input id="monthInput" type="text" maxlength="30" placeholder="April 2026" />
+  </div>
+  <div class="field-group goals-wrap" id="goalsContainer"></div>
+  <div class="actions actions-db">
+    <button id="loadDbBtn" class="btn btn-ghost" type="button">Load From Database</button>
+    <button id="saveDbBtn" class="btn btn-ghost" type="button">Save To Database</button>
+    <p id="dbStatus" class="db-status" data-tone="neutral" role="status" aria-live="polite">Local storage is active.</p>
+  </div>
+  <div class="actions">
+    <button id="exportPdfBtn" class="btn btn-primary" type="button">Export PDF</button>
+    <button id="exportExcelBtn" class="btn btn-secondary" type="button">Export Excel</button>
+    <button id="resetBtn" class="btn btn-ghost" type="button">Reset Month</button>
+  </div>
+</section>
+
+<section class="panel habits-panel">
+  <h2>Habit Labels</h2>
+  <div id="habitLabels" class="habit-label-grid"></div>
+</section>
+
+<section class="panel table-panel">
+  <h2>Daily Entries</h2>
+  <div class="table-scroller">
+    <table id="entryTable"></table>
+  </div>
+</section>

@@ -1,0 +1,121 @@
+[data-tab-panel="journal"] .grid-two {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+[data-tab-panel="journal"] .stack-list {
+  display: grid;
+  gap: 10px;
+}
+
+[data-tab-panel="journal"] .journal-heading {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+[data-tab-panel="journal"] .journal-heading .meta-row {
+  margin: 0;
+}
+
+[data-tab-panel="journal"] .journal-prompts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+[data-tab-panel="journal"] .prompt-chip {
+  border: 1px solid #9db4bb;
+  background: #eff8fa;
+  color: #164652;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+[data-tab-panel="journal"] .prompt-chip:hover {
+  background: #e0f2f6;
+  border-color: #0f7b8e;
+}
+
+[data-tab-panel="journal"] .journal-editor-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+[data-tab-panel="journal"] .journal-editor-foot .meta-row {
+  margin: 0;
+}
+
+[data-tab-panel="journal"] .journal-list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+[data-tab-panel="journal"] .journal-list-head h2 {
+  margin: 0;
+}
+
+[data-tab-panel="journal"] .journal-list-head input {
+  width: min(280px, 100%);
+}
+
+[data-tab-panel="journal"] .entry-meta-badge {
+  display: inline-flex;
+  border: 1px solid #a7bec6;
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 0.76rem;
+  color: #355d68;
+  margin-bottom: 8px;
+}
+
+[data-tab-panel="journal"] .list-card {
+  border: 1px solid #a8bcc2;
+  border-radius: 12px;
+  background: #fbffff;
+  padding: 12px;
+}
+
+[data-tab-panel="journal"] .list-card h3 {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+}
+
+[data-tab-panel="journal"] .list-card p {
+  margin: 0;
+  color: #26414b;
+  white-space: pre-wrap;
+}
+
+[data-tab-panel="journal"] .meta-row {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  color: #45636b;
+}
+
+@media (max-width: 780px) {
+  [data-tab-panel="journal"] .journal-list-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  [data-tab-panel="journal"] .journal-list-head input {
+    width: 100%;
+  }
+
+  [data-tab-panel="journal"] .journal-editor-foot {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

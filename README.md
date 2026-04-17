@@ -4,6 +4,29 @@ Habit tracker web app with export to PDF and Excel styled to match the provided 
 
 This project now includes a database-backed API for cloud save/load by profile + month.
 
+## Project structure
+
+The app is organized so each tab can be edited in isolation.
+
+- Shared shell and app bootstrap:
+   - `index.html`
+   - `style.css`
+   - `src/main.js`
+- Tab HTML templates (one file per tab):
+   - `src/tabs/habit/template.html`
+   - `src/tabs/journal/template.html`
+   - `src/tabs/finances/template.html`
+   - `src/tabs/exercise/template.html`
+   - `src/tabs/food/template.html`
+- Tab CSS (one file per tab):
+   - `src/styles/tabs/habit.css`
+   - `src/styles/tabs/journal.css`
+   - `src/styles/tabs/finances.css`
+   - `src/styles/tabs/exercise.css`
+   - `src/styles/tabs/food.css`
+
+`src/main.js` mounts each tab template into the matching tab panel at runtime, and `style.css` imports all tab CSS files.
+
 ## Local development
 
 1. Install dependencies:
@@ -68,3 +91,17 @@ If database is not configured, the app still works with local browser storage.
    vercel --prod
 
 Project settings are defined in `vercel.json`.
+
+## Git workflow for tab updates
+
+To keep work isolated and PRs easy to review:
+
+1. Create a feature branch.
+2. Edit only the relevant tab files (HTML/CSS/module) plus shared files if needed.
+3. Run `npm run build` before pushing.
+4. Push branch and open a PR to `main`.
+
+Recommended:
+
+- Never use force push on shared branches.
+- Keep PR scope focused on one feature/refactor when possible.
