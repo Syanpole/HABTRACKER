@@ -38,18 +38,20 @@
       <p class="eyebrow">Monthly Routine Control</p>
       <h1>Habit Tracker Export Studio</h1>
       <p class="subtitle">Track daily actions, notes, money, training, and nutrition in one place.</p>
-      <div class="actions">
-        <button id="logoutBtn" class="btn btn-ghost" type="button">Logout</button>
-      </div>
     </header>
 
-    <section class="panel tab-switcher" aria-label="Main Tabs">
-      <button class="tab-btn is-active" data-tab="habit" type="button">Habit tracker</button>
-      <button class="tab-btn" data-tab="journal" type="button">Journal</button>
-      <button class="tab-btn" data-tab="finances" type="button">Finances</button>
-      <button class="tab-btn" data-tab="exercise" type="button">Exercise</button>
-      <button class="tab-btn" data-tab="food" type="button">Food</button>
-    </section>
+    <nav class="panel app-navbar" aria-label="Main Navigation">
+      <section class="tab-switcher" aria-label="Main Tabs">
+        <button class="tab-btn is-active" data-tab="habit" type="button">Habit tracker</button>
+        <button class="tab-btn" data-tab="journal" type="button">Journal</button>
+        <button class="tab-btn" data-tab="finances" type="button">Finances</button>
+        <button class="tab-btn" data-tab="exercise" type="button">Exercise</button>
+        <button class="tab-btn" data-tab="food" type="button">Food</button>
+      </section>
+      <div class="app-navbar-actions">
+        <button id="logoutBtn" class="btn btn-ghost" type="button">Logout</button>
+      </div>
+    </nav>
 
     <section class="tab-panel is-active" data-tab-panel="habit"></section>
 

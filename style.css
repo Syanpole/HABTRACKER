@@ -216,6 +216,26 @@ textarea {
   gap: 8px;
 }
 
+.app-navbar {
+  position: sticky;
+  top: 10px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-navbar .tab-switcher {
+  flex: 1 1 auto;
+}
+
+.app-navbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 0 0 auto;
+}
+
 .tab-btn {
   border: 1px solid #8ea2a8;
   background: #f4fbfc;
@@ -281,6 +301,20 @@ h2 {
   .tab-btn {
     flex: 1 1 calc(50% - 8px);
     text-align: center;
+  }
+
+  .app-navbar {
+    top: 6px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .app-navbar-actions {
+    justify-content: stretch;
+  }
+
+  .app-navbar-actions .btn {
+    width: 100%;
   }
 
 }
